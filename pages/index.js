@@ -1,19 +1,12 @@
 import { useEffect, useState, useRef } from 'react';
 import { encodeURL, createQR } from '@solana/pay';
-import { MERCHANT_WALLET } from "./constants";
+import { MERCHANT_WALLET } from "../component/constants";
 import { Keypair } from "@solana/web3.js";
 import BigNumber from "bignumber.js";
 
-// async function establishConnection(cluster = "devnet") {
-//   const endpoint = clusterApiUrl(cluster);
-//   const connection = new Connection(endpoint, "confirmed");
-//   const version = await connection.getVersion();
-//   return connection;
-// }
-
 export default function Home() {
   let ref = useRef(null);
-  const [paymentUrl, setPaymentUrl] = useState(null);
+  // const [paymentUrl, setPaymentUrl] = useState(null);
 
   useEffect(() => {
     const url = encodeURL({
@@ -24,7 +17,6 @@ export default function Home() {
       message: 'SolKicks - your order - #001234',
       memo: 'SK#4098',
     });
-    console.log("🚀 ~ file: main.js ~ line 86 ~ main ~ url", url);
     console.log(url);
     const qrCode = createQR(url);
     console.log(qrCode);
@@ -37,8 +29,7 @@ export default function Home() {
   return (
     <>
     QR Demo
-    <div ref={ref}>
-    </div>
+    <div ref={ref} />
     </>
   )
 }
