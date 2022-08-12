@@ -1,10 +1,7 @@
-
-import { QRCode } from '../component/QRCode';
 import { useEffect, useState, useRef } from 'react';
 import { encodeURL, createQR } from '@solana/pay';
 import { MERCHANT_WALLET } from "./constants";
-import { Cluster, clusterApiUrl, Connection } from "@solana/web3.js";
-import { Keypair, PublicKey } from "@solana/web3.js";
+import { Keypair } from "@solana/web3.js";
 import BigNumber from "bignumber.js";
 
 // async function establishConnection(cluster = "devnet") {
